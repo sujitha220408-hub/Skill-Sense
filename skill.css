@@ -114,6 +114,49 @@ body {
     cursor: pointer;
     transition: 0.3s;
 }
+@media (max-width: 500px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .skill-container {
+        width: 100%;
+    }
+
+    .skill-back-btn {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin-bottom: 25px;
+    }
+
+    .heading {
+        margin-bottom: 25px;
+    }
+
+    .heading h1 {
+        font-size: 30px;
+    }
+
+    .heading p {
+        font-size: 15px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .skill-card {
+        padding: 20px 15px;
+    }
+
+    .skill-card img {
+        width: 110px;
+        height: 110px;
+    }
+}
 
 .skill-back-btn:hover {
     background: #4f46e5;
