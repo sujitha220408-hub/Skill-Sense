@@ -1,0 +1,750 @@
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+
+    background: linear-gradient(135deg, #4f46e5, #7c3aed, #ec4899);
+    color: white;
+
+    overflow-x: hidden;
+}
+
+
+/* ================= NAVBAR ================= */
+
+header {
+
+    height: 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 30px;
+
+    font-weight: bold;
+}
+
+
+.brand img {
+
+    width: 55px;
+
+    height: 55px;
+
+    object-fit: contain;
+
+}
+
+
+.brand b {
+
+    color: #ec4899;
+}
+
+
+nav {
+
+    display: flex;
+
+    gap: 45px;
+}
+
+
+nav a {
+
+    color: #dce6ff;
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+    position: relative;
+
+    padding: 10px 0;
+}
+
+
+nav a:hover,
+nav a.active {
+
+    color: #00eaff;
+}
+
+
+nav a.active::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 3px;
+
+    background: #00eaff;
+
+    border-radius: 10px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+
+    min-height: calc(100vh - 90px);
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 30px 5% 50px;
+
+    gap: 60px;
+}
+
+
+/* ================= ROBOT ================= */
+
+.robot-section {
+
+    width: 48%;
+
+    height: 650px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+}
+
+
+.robot-glow {
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: #006eff;
+
+    filter: blur(120px);
+
+    opacity: 0.22;
+}
+
+
+.robot {
+
+    width: 600px;
+
+    max-width: 100%;
+
+    position: relative;
+
+    z-index: 2;
+
+    filter:
+        drop-shadow(0 0 20px #008cff)
+        drop-shadow(0 0 45px rgba(0,220,255,0.35));
+
+    animation: robotFloat 4s ease-in-out infinite;
+}
+
+
+@keyframes robotFloat {
+
+    0%, 100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-12px);
+
+    }
+}
+
+
+/* ================= CONTENT ================= */
+
+.content {
+
+    width: 52%;
+
+    max-width: 700px;
+
+    padding-right: 2%;
+}
+
+
+.small-title {
+
+    color: #00eaff;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 22px;
+}
+
+
+h1 {
+
+    font-size: clamp(55px, 5vw, 82px);
+
+    line-height: 1.02;
+
+    margin-bottom: 28px;
+
+    letter-spacing: -2px;
+}
+
+
+h1 span {
+
+    display: block;
+
+    color: #00dfff;
+
+    text-shadow: 0 0 25px rgba(0,220,255,0.3);
+}
+
+
+.description {
+
+    color: #b8c7e6;
+
+    font-size: 19px;
+
+    line-height: 1.7;
+
+    max-width: 650px;
+
+    margin-bottom: 35px;
+}
+
+
+/* ================= BUTTON ================= */
+
+.start-btn {
+
+    border: none;
+
+    outline: none;
+
+    padding: 20px 45px;
+
+    border-radius: 50px;
+
+    background: #00d9ff;
+
+    color: #021027;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px #00d9ff,
+        0 0 35px rgba(0,217,255,0.5);
+
+    animation: buttonBlink 1.4s infinite;
+
+    transition: 0.3s;
+}
+
+
+.start-btn span {
+
+    font-size: 25px;
+
+    margin-left: 12px;
+}
+
+
+.start-btn:hover {
+
+    transform: scale(1.06);
+
+    box-shadow:
+        0 0 25px #00eaff,
+        0 0 60px rgba(0,220,255,0.7);
+}
+
+
+@keyframes buttonBlink {
+
+    0%, 100% {
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        opacity: 0.65;
+
+    }
+}
+
+
+/* ================= STEPS ================= */
+
+.steps {
+
+    display: flex;
+
+    align-items: center;
+
+    margin-top: 65px;
+
+    gap: 25px;
+}
+
+
+.step {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.number {
+
+    width: 55px;
+
+    height: 55px;
+
+    border: 2px solid #00cfff;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #00eaff;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    box-shadow: 0 0 15px rgba(0,220,255,0.25);
+}
+
+
+.step h3 {
+
+    font-size: 17px;
+
+    margin-bottom: 5px;
+}
+
+
+.step p {
+
+    color: #8999ba;
+
+    font-size: 13px;
+}
+
+
+.line {
+
+    width: 50px;
+
+    height: 1px;
+
+    background: rgba(255,255,255,0.2);
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 1000px) {
+
+    header {
+
+        padding: 0 4%;
+
+    }
+
+    nav {
+
+        gap: 20px;
+
+    }
+
+    .hero {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+    .robot-section {
+
+        width: 100%;
+
+        height: 450px;
+
+    }
+
+    .robot {
+
+        width: 450px;
+
+    }
+
+    .content {
+
+        width: 100%;
+
+        padding: 0;
+
+    }
+
+    .description {
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+    }
+
+    .steps {
+
+        justify-content: center;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    nav {
+
+        display: none;
+
+    }
+
+    .brand {
+
+        font-size: 24px;
+
+    }
+
+    h1 {
+
+        font-size: 48px;
+
+    }
+
+    .robot-section {
+
+        height: 350px;
+
+    }
+
+    .robot {
+
+        width: 350px;
+
+    }
+
+    .steps {
+
+        flex-direction: column;
+
+    }
+
+    .line {
+
+        display: none;
+
+    }
+
+}
+/* ================= USER DETAILS PAGE ================= */
+
+.details-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 15px;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed, #ec4899);
+}
+
+.details-card {
+    width: 100%;
+    max-width: 430px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.details-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.details-tag {
+    color: #7c3aed;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.details-card h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+    color: #4f46e5;
+}
+
+.details-card h1 span {
+    color: #ec4899;
+}
+
+.details-description {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.details-card form {
+    text-align: left;
+}
+
+.details-card label {
+    display: block;
+    color: #4b3b69;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 12px;
+}
+
+.details-card input,
+.details-card select {
+    width: 100%;
+    padding: 11px;
+    border-radius: 9px;
+    border: 1px solid #d8b4fe;
+    background: #faf5ff;
+    color: #333;
+    font-size: 14px;
+    outline: none;
+}
+
+.details-card input::placeholder {
+    color: #999;
+}
+
+.details-card input:focus,
+.details-card select:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 8px rgba(124, 58, 237, 0.2);
+}
+
+.details-card button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #4f46e5, #ec4899);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.details-card button:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .details-card {
+        padding: 20px;
+    }
+
+    .details-card h1 {
+        font-size: 25px;
+    }
+    
+}
+
+.welcome-screen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #eef2ff, #ffffff);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.robot-welcome {
+    text-align: center;
+    animation: welcomePop 0.8s ease;
+}
+
+.robot-welcome img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+}
+
+.robot-welcome h2 {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.robot-welcome p {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.robot-welcome button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+@keyframes welcomePop {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* ================= PROFESSIONAL NAVBAR ================= */
+
+.brand span {
+    color: #ffffff;
+}
+
+.brand span b {
+    color: #38bdf8;
+}
+
+
+/* Dark glass navigation */
+
+header nav {
+    background: rgba(15, 23, 42, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 14px;
+
+    padding: 8px 12px;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Navigation links */
+
+header nav a {
+    color: rgba(255, 255, 255, 0.88);
+
+    padding: 9px 13px;
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    transition: 0.3s;
+}
+
+
+/* Hover */
+
+header nav a:hover {
+    color: #ffffff;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border-color: rgba(255, 255, 255, 0.22);
+}
+
+
+/* Active */
+
+header nav a.active {
+    color: #ffffff;
+
+    background: rgba(15, 23, 42, 0.55);
+
+    border-color: rgba(103, 232, 249, 0.45);
+
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.15);
+}
+
+
+/* Remove old underline */
+
+header nav a::after {
+    display: none;
+}

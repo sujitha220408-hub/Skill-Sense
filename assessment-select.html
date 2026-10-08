@@ -1,0 +1,158 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Sense - Assessments</title>
+    <link rel="stylesheet" href="assessment-select.css">
+</head>
+
+<body>
+<!-- WELCOME BOARD -->
+<div class="greeting-card" id="greetingCard">
+
+    <div class="greeting-robot">
+        <img src="images/robo.jpeg" alt="Skill Sense Robot">
+    </div>
+
+    <div class="greeting-content">
+        <p id="greetingMessage">Hi 👋</p>
+    </div>
+
+    <button id="skipGreeting">
+        Skip →
+    </button>
+
+</div>
+<div class="container">
+
+    <button class="back-btn" onclick="goBack()">←</button>
+
+    <h1 id="skillTitle">Programming</h1>
+    <p class="subtitle">Choose Your Assessment</p>
+
+    <div class="assessment-grid">
+
+        <div class="assessment-card active" onclick="openAssessment(1)">
+            <span>01</span>
+            <h2>Assessment 1/5</h2>
+            <p>Start Assessment →</p>
+        </div>
+
+        <div class="assessment-card locked">
+            <span>02</span>
+            <h2>Assessment 2/5</h2>
+            <p>🔒 Locked</p>
+        </div>
+
+        <div class="assessment-card locked">
+            <span>03</span>
+            <h2>Assessment 3/5</h2>
+            <p>🔒 Locked</p>
+        </div>
+
+        <div class="assessment-card locked">
+            <span>04</span>
+            <h2>Assessment 4/5</h2>
+            <p>🔒 Locked</p>
+        </div>
+
+        <div class="assessment-card locked">
+            <span>05</span>
+            <h2>Assessment 5/5</h2>
+            <p>🔒 Locked</p>
+        </div>
+
+    </div>
+
+</div>
+<script>
+const skill = localStorage.getItem("selectedSkill") || "Programming";
+document.getElementById("skillTitle").textContent = skill;
+
+const cards = document.querySelectorAll(".assessment-card");
+
+let completed = Number(
+    localStorage.getItem(skill + "_completed") || 0
+);
+
+for (let i = 0; i < cards.length; i++) {
+
+    if (i < completed) {
+        cards[i].classList.add("completed");
+        cards[i].classList.remove("locked", "active");
+        cards[i].querySelector("p").textContent = "✓ Completed";
+        cards[i].onclick = null;
+
+    } else if (i === completed) {
+        cards[i].classList.remove("locked");
+        cards[i].classList.add("active");
+        cards[i].querySelector("p").textContent = "Start Assessment →";
+        cards[i].onclick = function() {
+            openAssessment(i + 1);
+        };
+
+    } else {
+        cards[i].classList.add("locked");
+        cards[i].classList.remove("active");
+        cards[i].querySelector("p").textContent = "🔒 Locked";
+        cards[i].onclick = null;
+    }
+}
+
+function openAssessment(number) {
+    localStorage.setItem("currentAssessment", number);
+    window.location.href = "assisment.html";
+}
+
+function goBack() {
+    window.location.href = "skill.html";
+}
+
+</script>
+<script>
+    const userName =
+        localStorage.getItem("userName") || "User";
+
+    const selectedSkill =
+        localStorage.getItem("selectedSkill") || "Skill";
+
+    const greetingMessage =
+        document.getElementById("greetingMessage");
+
+    const greetingTexts = [
+        "Hi " + userName + " 👋",
+        "Welcome to our AI Assistant 🤖",
+        "Get ready for your " +
+        selectedSkill +
+        " Assessment 🚀"
+    ];
+
+    let greetingIndex = 0;
+
+    function showGreeting() {
+        greetingMessage.textContent =
+            greetingTexts[greetingIndex];
+
+        greetingIndex++;
+
+        if (greetingIndex < greetingTexts.length) {
+            setTimeout(showGreeting, 2500);
+        } else {
+            setTimeout(() => {
+                document.getElementById(
+                    "greetingCard"
+                ).style.display = "none";
+            }, 2500);
+        }
+    }
+
+    showGreeting();
+
+    document.getElementById("skipGreeting").onclick =
+        function () {
+            document.getElementById(
+                "greetingCard"
+            ).style.display = "none";
+        };
+</script>
+

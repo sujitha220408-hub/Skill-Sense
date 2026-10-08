@@ -1,0 +1,78 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skill Sense - User Details</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="details-page">
+
+        <div class="details-card">
+
+            <img src="logo.jpeg" class="details-logo"  length="20" breadth="20"alt="Skill Sense Logo">
+
+            <p class="details-tag">WELCOME TO SKILL SENSE</p>
+
+            <h1>Tell Us About <span>You</span></h1>
+
+            <p class="details-description">
+                Enter your details and choose the skill you want to assess.
+            </p>
+
+
+            <form>
+
+                <label>Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your full name"
+                >
+
+
+                <label>Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email address"
+                >
+
+
+                <label>Education</label>
+
+                <input
+                    type="text"
+                    id="education"
+                    placeholder="Example: B.Sc Computer Science"
+                >
+
+
+                
+
+                <button
+                    type="button"
+                    onclick="saveUserDetails()"
+                >
+                    Continue →
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

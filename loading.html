@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Sense - Loading</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .loading-page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #4f46e5, #7c3aed, #ec4899);
+        color: white;
+        text-align: center;
+    }
+
+    .loading-page h1 {
+        font-size: 42px;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+    }
+
+    .loading-page p {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .loader {
+        width: 280px;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
+
+    .loader-bar {
+        width: 40%;
+        height: 100%;
+        background: white;
+        border-radius: 10px;
+        animation: loading 2s infinite ease-in-out;
+    }
+
+    .loading-page span {
+        font-size: 14px;
+        opacity: 0.9;
+    }
+
+    @keyframes loading {
+        0% {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(700%);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+    <div class="loading-page">
+
+        <h1>SKILL SENSE</h1>
+
+        <p>Preparing your AI experience...</p>
+
+        <div class="loader">
+            <div class="loader-bar"></div>
+        </div>
+
+        <span>Loading...</span>
+
+    </div><script>
+    setTimeout(function () {
+        window.location.href = "user-details.html";
+    }, 10000);
+</script>
+
+</body>
+</html>

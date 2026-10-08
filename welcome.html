@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>Skill Sense - Welcome</title>
+    <link rel="stylesheet" href="welcome.css">
+</head>
+
+<body>
+
+    <div class="welcome-page">
+
+        <!-- Robot -->
+        <div class="robot-section">
+    <img src="images/robo.jpeg" alt="Skill Sense AI Robot">
+</div>
+
+        <!-- Speech Cloud -->
+        <div class="message-cloud">
+            <p id="message"></p>
+        </div>
+
+        <!-- Start Assessment -->
+        <div class="start-assessment" id="startAssessment"
+             onclick="startAssessment()">
+            Let's Start Assessment
+            <span>→</span>
+        </div>
+
+    </div>
+    <script>
+    const userName = localStorage.getItem("userName") || "User";
+
+    const message = document.getElementById("message");
+
+    const messages = [
+        "Hi " + userName + " 👋",
+        "Welcome to our AI Assistant 🤖",
+        "Let's Start Assessment 🚀",
+        'Click "Let\'s Start Assessment"'
+    ];
+
+    let currentMessage = 0;
+
+    function showMessage() {
+        message.style.opacity = "0";
+
+        setTimeout(() => {
+            message.textContent = messages[currentMessage];
+            message.style.opacity = "1";
+
+            currentMessage++;
+
+            if (currentMessage < messages.length) {
+                setTimeout(showMessage, 2500);
+            }
+        }, 400);
+    }
+
+    showMessage();
+    function startAssessment() {
+    window.location.href = "assessment-select.html";
+}
+</script>
+</body>
+</html>

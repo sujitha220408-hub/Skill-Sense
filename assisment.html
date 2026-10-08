@@ -1,0 +1,202 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skill Sense - Assessment</title>
+
+    <link rel="stylesheet" href="assisment.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+
+<body>
+<button class="back-btn" onclick="goBack()">← Back</button>
+
+    <!-- ================= RESULT ================= -->
+
+    <div class="result-container" id="resultContainer" style="display:none;">
+
+        <button class="back-btn" onclick="goToAssessments()">
+            ← Back
+        </button>
+
+        <h1>Assessment Result</h1>
+
+        <div class="score-box">
+
+            <h2 id="scoreText">
+                Score: 0/15
+            </h2>
+
+            <div class="score-details">
+
+                <div>
+                    <span id="rightAnswers">0</span>
+                    <p>Right Answers</p>
+                </div>
+
+                <div>
+                    <span id="wrongAnswers">0</span>
+                    <p>Wrong Answers</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Chart -->
+
+        <div class="chart-box">
+            <canvas id="scoreChart"></canvas>
+        </div>
+<!-- AI / NLP Analysis -->
+
+<div class="ai-analysis" id="aiAnalysis">
+
+    <h2>🤖 AI / NLP Analysis</h2>
+
+    <div class="ai-card">
+        <h3>🎯 Performance</h3>
+        <p id="aiPerformance">
+            Analyzing your performance...
+        </p>
+    </div>
+
+    <div class="ai-card">
+        <h3>💪 Strengths</h3>
+        <p id="aiStrengths">
+            Analyzing your strengths...
+        </p>
+    </div>
+
+    <div class="ai-card">
+        <h3>📚 Improvement Areas</h3>
+        <p id="aiWeakness">
+            Analyzing areas for improvement...
+        </p>
+    </div>
+
+    <div class="ai-card">
+        <h3>💡 AI Recommendation</h3>
+        <p id="aiRecommendation">
+            Generating recommendation...
+        </p>
+    </div>
+
+</div>
+
+        <!-- Answer Review -->
+
+        <h2 class="review-title">
+            Answer Review
+        </h2>
+
+        <div id="reviewContainer"></div>
+
+    </div>
+
+
+    <!-- ================= QUIZ ================= -->
+
+    <div class="quiz-container" id="quizContainer">
+
+        <!-- Top section -->
+
+        <div class="top-section">
+
+            <button class="back-btn"
+                onclick="window.location.href='skill.html'">
+                ← Back
+            </button>
+
+            <div class="progress-text">
+
+                Assessment
+                <span id="currentQuestion">1</span>/15
+
+            </div>
+
+        </div>
+
+
+        <!-- Progress bar -->
+
+        <div class="progress-bar">
+
+            <div id="progress"></div>
+
+        </div>
+
+
+        <!-- Skill Image -->
+
+        <div class="robot">
+
+            <img id="skillImage"
+                src=""
+                alt="Selected Skill">
+
+            <h2 id="skillName"></h2>
+
+        </div>
+
+
+        <!-- Skill title -->
+
+        <h1 id="skillTitle">
+            Skill Assessment
+        </h1>
+
+
+        <!-- Question number -->
+
+        <p class="question-number">
+
+            Question
+            <span id="questionNumber">1</span>
+            of 15
+
+        </p>
+
+
+        <!-- Question -->
+
+        <div class="question-box">
+
+            <h2 id="question">
+                Loading question...
+            </h2>
+
+        </div>
+
+
+        <!-- Options -->
+
+        <div id="options"
+            class="options">
+        </div>
+        <div id="explanation" class="explanation"></div>
+
+
+        <!-- Next -->
+
+        <button id="nextBtn">
+            Next →
+        </button>
+
+    </div>
+    <!-- ================= MAIN JAVASCRIPT ================= -->
+<script src="question-bank.js"></script>
+<script src="assisment.js"></script>
+
+
+</body>
+
+</html>

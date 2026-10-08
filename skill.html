@@ -1,0 +1,78 @@
+ <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skill Sense - Select Skill</title>
+
+    <link rel="stylesheet" href="skill.css">
+</head>
+
+<body>
+
+    <div class="skill-container">
+
+        <button class="skill-back-btn" onclick="goHome()">← Back</button>
+
+        <div class="heading">
+            <h1>Choose Your Skill</h1>
+            <p>Select a skill to start your assessment</p>
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill-card" onclick="selectSkill('Programming')">
+                <img src="images/programming.jpeg" alt="Programming">
+                <h2>Programming</h2>
+                <p>Test your coding knowledge</p>
+            </div>
+
+            <div class="skill-card" onclick="selectSkill('Web Development')">
+                <img src="images/web-development.jpeg" alt="Web Development">
+                <h2>Web Development</h2>
+                <p>HTML, CSS and web concepts</p>
+            </div>
+
+            <div class="skill-card" onclick="selectSkill('Database')">
+                <img src="images/database.jpeg" alt="Database">
+                <h2>Database</h2>
+                <p>Test your database knowledge</p>
+            </div>
+
+            <div class="skill-card" onclick="selectSkill('Problem Solving')">
+                <img src="images/problem-solving.jpeg" alt="Problem Solving">
+                <h2>Problem Solving</h2>
+                <p>Improve your logical thinking</p>
+            </div>
+
+            <div class="skill-card" onclick="selectSkill('Teamwork & Communication')">
+                <img src="images/teamwork.jpeg" alt="Teamwork & Communication">
+                <h2>Teamwork & Communication</h2>
+                <p>Test your communication skills</p>
+            </div>
+
+            <div class="skill-card" onclick="selectSkill('Interview Skills')">
+                <img src="images/interview.jpeg" alt="Interview Skills">
+                <h2>Interview Skills</h2>
+                <p>Prepare for your interview</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+     function selectSkill(skill) {
+    localStorage.setItem("selectedSkill", skill);
+    window.location.href = "assessment-select.html";
+}
+
+        
+    </script>
+<script>
+function goHome() {
+    window.location.href = "index.html";
+}
+</script>
+</body>
+</html>

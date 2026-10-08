@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Sense - Learning</title>
+    <link rel="stylesheet" href="learning.css">
+</head>
+
+<body>
+
+    <div class="learning-container">
+<button class="learning-back-btn" onclick="goHome()">← Back</button>
+        <h1>Learning Center</h1>
+        <p>Choose a skill to start learning</p>
+
+        <div class="learning-grid">
+
+            <div class="learning-card">
+                <h2>Programming</h2>
+                <p>Learn programming concepts and practice questions.</p>
+                <button onclick="openPDF('Programming.pdf')">
+    Open PDF →
+</button>
+            </div>
+
+            <div class="learning-card">
+                <h2>Web Development</h2>
+                <p>Learn HTML, CSS, JavaScript and web development.</p>
+                <button onclick="openPDF('Web Development.pdf')">
+    Open PDF →
+</button>
+            </div>
+
+            <div class="learning-card">
+                <h2>Database</h2>
+                <p>Learn SQL and important database concepts.</p>
+                <button onclick="openPDF('Database.pdf')">Open PDF →</button>
+            </div>
+
+            <div class="learning-card">
+                <h2>Problem Solving</h2>
+                <p>Improve logical thinking and problem-solving skills.</p>
+                <button onclick="openPDF('Problem Solving.pdf')">Open PDF →</button>
+            </div>
+
+            <div class="learning-card">
+                <h2>Teamwork & Communication</h2>
+                <p>Improve communication and teamwork skills.</p>
+                <button onclick="openPDF('Teamwork & Communication.pdf')">Open PDF →</button>
+            </div>
+
+            <div class="learning-card">
+                <h2>Interview Skills</h2>
+                <p>Prepare for interviews with useful practice questions.</p>
+                <button  onclick="openPDF('Interview Skills.pdf')">Open PDF →</button>
+            </div>
+
+        </div>
+
+    </div>
+    <div id="pdfViewer" class="pdf-viewer">
+    <div class="pdf-box">
+        <button class="close-pdf" onclick="closePDF()">✕</button>
+        <iframe id="pdfFrame"></iframe>
+    </div>
+</div>
+
+<script>
+function openPDF(file) {
+    document.getElementById("pdfFrame").src = file;
+    document.getElementById("pdfViewer").style.display = "flex";
+}
+
+function closePDF() {
+    document.getElementById("pdfViewer").style.display = "none";
+    document.getElementById("pdfFrame").src = "";
+}
+</script>
+<script>
+function goHome() {
+    window.location.href = "index.html";
+}
+</script>
+</body>
+</html>

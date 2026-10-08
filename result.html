@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skill Sense - Results</title>
+
+    <link rel="stylesheet" href="result.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header>
+
+        <div class="brand">
+            <img src="logo.jpeg" alt="Skill Sense Logo">
+            <span>Skill <b>Sense</b></span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="skill.html">Skill Selection</a>
+            <a href="learning.html">Learning</a>
+            <a href="results.html" class="active">Results</a>
+            <a href="about.html">About</a>
+            <a href="features.html">Features</a>
+        </nav>
+
+    </header>
+
+
+    <!-- RESULTS -->
+
+    <main class="results-section">
+
+        <div class="results-heading">
+
+            <p class="small-title">
+                PERFORMANCE DASHBOARD
+            </p>
+
+            <h1>
+                Your Assessment
+                <span>Results</span>
+            </h1>
+
+            <p>
+                Track your performance and monitor your skill
+                progress across completed assessments.
+            </p>
+
+        </div>
+
+
+        <!-- SUMMARY CARDS -->
+
+        <div class="summary-grid">
+
+            <div class="summary-card">
+                <div class="summary-icon">📝</div>
+                <div>
+                    <h3 id="totalAssessments">0</h3>
+                    <p>Assessments Completed</p>
+                </div>
+            </div>
+
+
+            <div class="summary-card">
+                <div class="summary-icon">📊</div>
+                <div>
+                    <h3 id="averageScore">0%</h3>
+                    <p>Average Score</p>
+                </div>
+            </div>
+
+
+            <div class="summary-card">
+                <div class="summary-icon">🏆</div>
+                <div>
+                    <h3 id="bestScore">0%</h3>
+                    <p>Best Score</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- RESULT LIST -->
+
+        <section class="results-box">
+
+            <div class="section-title">
+                <h2>Assessment History</h2>
+                <span>Latest Performance</span>
+            </div>
+
+            <div id="resultsContainer">
+
+                <div class="empty-result">
+                    <div>📋</div>
+                    <h3>No assessments completed yet</h3>
+                    <p>
+                        Complete an assessment to see your
+                        results here.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        /*
+         * Skill Sense Results
+         * Reads completed assessment scores
+         * from localStorage.
+         */
+
+        const skills = [
+    "Programming",
+    "Web Development",
+    "Database",
+    "Problem Solving",
+    "Teamwork & Communication",
+    "Interview Skills"
+];
+        const resultsContainer =
+            document.getElementById("resultsContainer");
+
+        let allResults = [];
+
+
+        /* ================= GET RESULTS ================= */
+
+        skills.forEach(skill => {
+
+            const completed =
+                Number(localStorage.getItem(skill + "_completed") || 0);
+
+            if (completed > 0) {
+
+                for (let i = 1; i <= completed; i++) {
+
+                    const score =
+                        localStorage.getItem(
+                            skill + "_assessment_" + i + "_score"
+                        );
+
+                    if (score !== null) {
+
+                        allResults.push({
+                            skill: skill,
+                            assessment: i,
+                            score: Number(score)
+                        });
+
+                    }
+                }
+            }
+        });
+
+
+        /* ================= SUMMARY ================= */
+
+        const totalAssessments =
+            allResults.length;
+
+        document.getElementById("totalAssessments")
+            .textContent = totalAssessments;
+
+
+        if (totalAssessments > 0) {
+
+            const totalScore =
+                allResults.reduce(
+                    (sum, item) => sum + item.score,
+                    0
+                );
+
+            const average =
+                Math.round(totalScore / totalAssessments);
+
+            const best =
+                Math.max(
+                    ...allResults.map(item => item.score)
+                );
+
+            document.getElementById("averageScore")
+                .textContent = average + "%";
+
+            document.getElementById("bestScore")
+                .textContent = best + "%";
+
+
+            /* ================= DISPLAY RESULTS ================= */
+
+            resultsContainer.innerHTML = "";
+
+            allResults.forEach(item => {
+
+                const resultCard =
+                    document.createElement("div");
+
+                resultCard.className = "result-card";
+
+                let status = "Needs Improvement";
+
+                if (item.score >= 80) {
+                    status = "Excellent";
+                }
+                else if (item.score >= 60) {
+                    status = "Good";
+                }
+
+                resultCard.innerHTML = `
+
+                    <div class="result-left">
+
+                        <div class="result-icon">
+                            🎯
+                        </div>
+
+                        <div>
+                            <h3>${item.skill}</h3>
+
+                            <p>
+                                Assessment ${item.assessment}
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-middle">
+
+                        <div class="progress-track">
+
+                            <div
+                                class="progress-fill"
+                                style="width:${item.score}%">
+                            </div>
+
+                        </div>
+
+                        <span>${status}</span>
+
+                    </div>
+
+
+                    <div class="result-score">
+
+                        <strong>
+                            ${item.score}%
+                        </strong>
+
+                        <small>
+                            Score
+                        </small>
+
+                    </div>
+
+                `;
+
+                resultsContainer.appendChild(resultCard);
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>

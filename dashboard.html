@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Sense - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+<button class="back-btn" onclick="goBack()">← Back</button>
+        <header class="top-bar">
+            <div class="logo">
+                🤖 <span>Skill Sense</span>
+            </div>
+
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </header>
+
+        <main>
+
+            <section class="welcome">
+                <h1>Welcome, <span id="userName">User</span> 👋</h1>
+                <p>Improve your skills and prepare for your future!</p>
+            </section>
+
+            <section class="cards">
+
+                <div class="card">
+                    <div class="icon">🎯</div>
+                    <h2>Skills</h2>
+                    <p>Choose and practice your skills.</p>
+                    <button onclick="goToSkills()">Explore Skills</button>
+                </div>
+
+                <div class="card">
+                    <div class="icon">📚</div>
+                    <h2>Learning</h2>
+                    <p>Learn concepts and practice questions.</p>
+                    <button onclick="goToLearning()">Start Learning</button>
+                </div>
+
+                <div class="card">
+                    <div class="icon">📝</div>
+                    <h2>Assessments</h2>
+                    <p>Test your knowledge with assessments.</p>
+                    <button onclick="goToAssessment()">Take Assessment</button>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🏆</div>
+                    <h2>Results</h2>
+                    <p>View your assessment performance.</p>
+                    <button onclick="goToResults()">View Results</button>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script>
+        const userName = localStorage.getItem("userName") || "User";
+        document.getElementById("userName").textContent = userName;
+
+        function goToSkills() {
+            window.location.href = "skill.html";
+        }
+
+        function goToLearning() {
+            window.location.href = "learning.html";
+        }
+
+        function goToAssessment() {
+            window.location.href = "assessment-select.html";
+        }
+
+        function goToResults() {
+            window.location.href = "results.html";
+        }
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = "user-details.html";
+        }
+    </script>
+function goBack() {
+    window.location.href = "assesment-select.html";
+}
+    </script>
+</body>
+</html>
