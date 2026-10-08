@@ -27,14 +27,17 @@ function beginInterview() {
 function saveUserDetails() {
 
     const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const education = document.getElementById("education").value.trim();
 
-    if (name === "") {
-        alert("Please enter your name");
+    if (name === "" || email === "" || education === "") {
+        alert("Please fill all the details.");
         return;
     }
 
     localStorage.setItem("userName", name);
+    localStorage.setItem("userEmail", email);
+    localStorage.setItem("userEducation", education);
 
-    window.location.href = "index.html";
+    window.location.href = "home.html";
 }
-
