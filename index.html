@@ -1,117 +1,94 @@
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Sense - Loading</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-    <title>Skill Sense</title>
+    body {
+        font-family: Arial, sans-serif;
+    }
 
-    <link rel="stylesheet" href="style.css">
+    .loading-page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #4f46e5, #7c3aed, #ec4899);
+        color: white;
+        text-align: center;
+    }
+
+    .loading-page h1 {
+        font-size: 42px;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+    }
+
+    .loading-page p {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .loader {
+        width: 280px;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
+
+    .loader-bar {
+        width: 40%;
+        height: 100%;
+        background: white;
+        border-radius: 10px;
+        animation: loading 2s infinite ease-in-out;
+    }
+
+    .loading-page span {
+        font-size: 14px;
+        opacity: 0.9;
+    }
+
+    @keyframes loading {
+        0% {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(700%);
+        }
+    }
+</style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+    <div class="loading-page">
 
-    <header>
+        <h1>SKILL SENSE</h1>
 
-        <div class="brand">
-            <img src="logo.jpeg" alt="Skill Sense Logo">
-            <span>Skill <b>Sense</b></span>
+        <p>Preparing your AI experience...</p>
+
+        <div class="loader">
+            <div class="loader-bar"></div>
         </div>
 
-       <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="skill.html">Skill Selection</a>
-    <a href="learning.html">Learning</a>
-    <a href="result.html">Results</a>
-    <a href="about.html">About</a>
-    <a href="features.html">Features</a>
-</nav>
+        <span>Loading...</span>
 
-    </header>
-
-
-    <!-- HERO SECTION -->
-
-    <section class="hero">
-
-        <!-- LEFT ROBOT -->
-
-        <div class="robot-section">
-
-            <div class="robot-glow"></div>
-
-            <img src="logo.jpeg" class="robot" alt="Skill Sense AI Robot">
-
-        </div>
-
-
-        <!-- RIGHT CONTENT -->
-
-        <div class="content">
-
-            <p class="small-title">
-                AI-POWERED SKILL ASSESSMENT
-            </p>
-
-            <h1>
-                Discover Your
-                <span>Real Skills.</span>
-            </h1>
-
-            <p class="description">
-                Skill Sense helps you assess your technical,
-                communication and problem-solving skills through
-                an interactive AI-based interview.
-            </p>
-
-
-            <!-- STEPS -->
-
-            <div class="steps">
-
-                <div class="step">
-                    <div class="number">01</div>
-                    <div>
-                        <h3>Practice</h3>
-                        <p>Build confidence</p>
-                    </div>
-                </div>
-
-
-                <div class="line"></div>
-
-
-                <div class="step">
-                    <div class="number">02</div>
-                    <div>
-                        <h3>Improve</h3>
-                        <p>Analyze your skills</p>
-                    </div>
-                </div>
-
-
-                <div class="line"></div>
-
-
-                <div class="step">
-                    <div class="number">03</div>
-                    <div>
-                        <h3>Succeed</h3>
-                        <p>Achieve your goals</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <script src="script.js"></script>
+    </div><script>
+    setTimeout(function () {
+        window.location.href = "user-details.html";
+    }, 10000);
+</script>
 
 </body>
-
 </html>
