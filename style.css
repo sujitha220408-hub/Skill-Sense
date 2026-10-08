@@ -953,3 +953,60 @@ body {
         font-size: 14px;
     }
 }
+/* ================= MOBILE NAVIGATION ================= */
+
+@media (max-width: 600px) {
+
+    header {
+        height: auto;
+        min-height: 65px;
+        padding: 10px 12px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .brand {
+        width: 100%;
+        justify-content: center;
+    }
+
+    header nav {
+        display: flex !important;
+
+        width: 100%;
+
+        justify-content: flex-start;
+
+        gap: 6px;
+
+        padding: 6px;
+
+        overflow-x: auto;
+
+        overflow-y: hidden;
+
+        white-space: nowrap;
+
+        border-radius: 12px;
+
+        scrollbar-width: none;
+    }
+
+    header nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    header nav a {
+        flex-shrink: 0;
+
+        font-size: 12px;
+
+        padding: 8px 10px;
+
+        border-radius: 8px;
+    }
+
+    .hero {
+        min-height: calc(100vh - 125px);
+    }
+}
